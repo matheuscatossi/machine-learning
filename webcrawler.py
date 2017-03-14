@@ -1,4 +1,4 @@
-import teewpy
+import tweepy
 import csv
 import time
 
