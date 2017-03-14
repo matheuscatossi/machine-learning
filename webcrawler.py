@@ -21,7 +21,7 @@ for status in tweepy.Cursor(api.search, q="#twitter").items():
     print(status)
 
 
-statuses = tweepy.Cursor(api.search.q="#Orlando", since="2017-03-05", until="2017-03-13", lang="pt").items()
+statuses = tweepy.Cursor(api.search, q="#Orlando", since="2017-03-05", until="2017-03-13", lang="pt").items()
 
 
 while True:
