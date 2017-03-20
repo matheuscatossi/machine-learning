@@ -19,20 +19,23 @@ row = []
 
 statuses = tweepy.Cursor(api.search, q="doria", since="2017-03-10", until="2017-03-15", lang="pt").items()
 #, lang="pt"
+print 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+exit()
+
 
 while True:
   try:
-    status = statuses.next()  
+    status = statuses.next()
     print(status)
-    
+
     # row = str(status.user.screen_name), str(status.created_at), str(status.text), status.geo
     row = str(status.text), ""
-    
+
     arquivo1.writerow(row)
-    
+
     # arquivo2.write(str(status))
     # arquivo2.write("\n")
-  
+
   except tweepy.TweepError as e:
     print (e.api_code)
     print("Aguarde 15 minutes")
