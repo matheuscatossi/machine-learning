@@ -19,17 +19,18 @@ row = []
 
 statuses = tweepy.Cursor(api.search, q="doria", since="2017-03-10", until="2017-03-15", lang="pt").items()
 #, lang="pt"
-print 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-exit()
 
 
 while True:
   try:
     status = statuses.next()
-    print(status)
+
+    print(str(status).encode('ascii', 'ignore').decode('ascii'))
+    #print("'" + str(status.encode("ascii")) + "'")
+
 
     # row = str(status.user.screen_name), str(status.created_at), str(status.text), status.geo
-    row = str(status.text), ""
+    row = str(str(status.text).encode('ascii', 'ignore').decode('ascii')), ""
 
     arquivo1.writerow(row)
 
