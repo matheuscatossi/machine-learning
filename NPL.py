@@ -1,10 +1,14 @@
 import csv
 import re
 import nltk
+#nltk.download('all')
 import string
 import unicodedata
 import sys
+# import matplotlib
+# import receipt
 from imp import reload
+
 
 reload(sys)
 # sys.setdefaultencoding("utf-8")
@@ -58,11 +62,26 @@ def remove_stopwords(text):
 
   return ct
 
+
+arquivoPrincipal = csv.writer(open("nltk.csv", "w"))
+count = 0
+
 for row in new_file:
   doc_word = remove_stopwords(row[0])
   doc_word = remove_hashtag(doc_word)
   doc_word = remove_URL(doc_word)
 
-  print(doc_word)
+  tokens    = nltk.word_tokenize(doc_word)
+  classes   = nltk.pos_tag(tokens)
+  entidades = nltk.chunk.ne_chunk(classes)
 
+  arquivo = csv.writer(open("NPL-PENNPOS/nltk" + str(count) + ".csv", "w"))
+  arquivo.writerow(classes)
+
+  arquivoPrincipal.writerow(entidades)
+
+  # print(nltk.corpus.mac_morpho.words(entidades))
+  print(classes)
+
+  count += 1
 
