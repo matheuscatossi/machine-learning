@@ -25,7 +25,7 @@ def remove_hashtag(text):
   return text
 
 def remove_URL(text):
-  clean_text = re.match("(.*?http.*?\s?(.*?)", text)
+  clean_text = re.match('(.*?)http.*?\s?(.*?)', text)
   if clean_text:
     return clean_text.group(1)
   else:
