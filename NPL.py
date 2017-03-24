@@ -9,7 +9,6 @@ import sys
 # import receipt
 from imp import reload
 
-
 reload(sys)
 # sys.setdefaultencoding("utf-8")
 
@@ -64,7 +63,7 @@ def remove_stopwords(text):
 
 
 arquivoPrincipal = csv.writer(open("nltk.csv", "w"))
-count = 0
+# count = 0
 
 for row in new_file:
   doc_word = remove_stopwords(row[0])
@@ -75,13 +74,13 @@ for row in new_file:
   classes   = nltk.pos_tag(tokens)
   entidades = nltk.chunk.ne_chunk(classes)
 
-  arquivo = csv.writer(open("NPL-PENNPOS/nltk" + str(count) + ".csv", "w"))
-  arquivo.writerow(classes)
+  # arquivo = csv.writer(open("NPL-PENNPOS/nltk" + str(count) + ".csv", "w"))
+  # arquivo.writerow(classes)
 
   arquivoPrincipal.writerow(entidades)
 
   # print(nltk.corpus.mac_morpho.words(entidades))
   print(classes)
 
-  count += 1
+  # count += 1
 

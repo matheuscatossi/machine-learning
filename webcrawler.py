@@ -21,7 +21,7 @@ arquivo1 = csv.writer(open("base_teewts.csv", "w"))
 
 row = []
 
-statuses = tweepy.Cursor(api.search, q="doria", since="2017-03-21", until="2017-03-22", lang="pt").items()
+statuses = tweepy.Cursor(api.search, q="BMG", since="2017-03-01", until="2017-03-22", lang="pt").items()
 #, lang="pt"
 
 
